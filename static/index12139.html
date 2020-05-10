@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Homework6</title>
+            <meta charset="utf-8">
+            <style>
+              body {
+                text-align: center;
+                margin-top: 1rem;
+              }
+
+              #main_page {
+                display: inline-block;
+              }
+
+              .subtitle {
+                font-weight: bold;
+                font-size: 1.5rem;
+                margin-bottom: -0.2rem;
+              }
+
+              #title {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: white;
+                margin-bottom: -0.5rem;
+                padding: 0.5rem;
+                margin-top: 0rem;
+              }
+
+              .pointer {
+                cursor: pointer;
+              }
+
+              #description {
+                font-size: 0.9rem;
+                color: white;
+              }
+
+              td {
+                background-color: #F4F4F6;
+                padding: 0;
+                margin: 0;
+                height: 2.5rem;
+                width: 9rem;
+              }
+
+              table {
+                border-spacing: 0;
+              }
+
+              #tabs {
+                border-radius: 0.2rem;
+                border: 0.05rem solid  #CBCBCD;
+                width: 9rem;
+              }
+
+              #tabs_container {
+                top: 1rem;
+                float: left;
+                position: sticky;
+              }
+
+              #main_body {
+                width: 45rem;
+                float: left;
+                margin-left: 1rem;
+              }
+
+              #search_body {
+                float: left;
+                width: 45rem;
+                margin-left: 1.9rem;
+              }
+
+              .hidden {
+                display: none;
+              }
+
+              #slides_image {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                height: 16rem;
+                width: 27rem;
+              }
+
+              #image_container {
+                float: left;
+                position: relative;
+                height: 16rem;
+              }
+
+              #image_container div {
+                position: absolute;
+                width: 27rem;
+                left: 1rem;
+                bottom: 0rem;
+                background-color: rgba(0, 0, 0, 0.5);
+              }
+
+              #slides {
+                margin-bottom: 18rem;
+              }
+
+              #my_dataviz {
+                background-color: #F4F4F6;
+                width: 16rem;
+                height: 16rem;
+                float: left;
+              }
+
+              .dotted {
+                border-style: dotted;
+                margin-bottom: 0rem;
+              }
+
+              .solid {
+                border: 0.05rem solid #CBCBCD;
+                margin-top: 0rem;
+              }
+
+              table .current_page {
+                background-color: #606060;
+                color: white;
+              }
+
+              .card_div {
+                height: 23rem;
+                width: 10.8rem;
+                background-color: #F4F4F6;
+                margin: 0.2rem;
+                border-radius: 0.2rem;
+                border: 0.05rem solid  #CBCBCD;
+              }
+
+              .news_container {
+                display: flex;
+                align-items: center;
+                z-index: 1000;
+              }
+
+              .card_image {
+                border-radius: 0.1rem;
+                height: 7rem;
+                width: 100%;
+              }
+
+              .card_title {
+                font-weight: bold;
+                margin-top: 0.5rem;
+                font-size: 0.9rem;
+              }
+
+              .card_description, .result-description {
+                font-size: 0.8rem;
+              }
+
+              a {
+                text-decoration: none;
+                color: black;
+              }
+
+              .required:after {
+                content:" *";
+                color: red;
+              }
+
+              form {
+                padding-top: 1rem;
+                font-size: 0.8rem;
+              }
+
+              #search-box {
+                background-color: #F4F4F6;
+                border-radius: 0.2rem;
+                margin-left: 3rem;
+                margin-right: 3rem;
+                margin-bottom: 1.5rem;
+              }
+
+              form * {
+                margin-bottom: 0.3rem;
+                margin-top: 0.3rem;
+              }
+
+              label {
+                margin-left: 1rem;
+                margin-right: 1rem;
+              }
+
+              #button-div input {
+                filter: brightness(100%);
+                border-radius: 0.1rem;
+                border-style: none;
+                margin: 1rem;
+                height: 1.5rem;
+                margin-top: 0.5rem;
+              }
+
+              #button-div input:hover, #show-btn:hover, table td:hover {
+                color: white;
+                background-color: #62B856;
+              }
+
+              #keyword {
+                width: 6rem;
+              }
+
+              #fromdate, #todate {
+                width: 8rem;
+              }
+
+              #dropdowns-div select {
+                width: 7rem;
+                text-align: center;
+              }
+
+              .result-img {
+                height: 4rem;
+                width: 4rem;
+                margin-right: 1rem;
+                margin-left: 1rem;
+                margin-top: 1rem;
+              }
+              
+              .result-div {
+                background-color: #F4F4F6;
+                border-radius: 0.2rem;
+                margin-left: 5rem;
+                margin-right: 5rem;
+                margin-bottom: 0.5rem;
+                border: 0.05rem solid  #CBCBCD;
+                display: flex;
+                height: 6rem;
+              }
+
+              .text-box {
+                text-align: left;
+                width: 26rem;
+              }
+
+              .text-box p {
+                margin: 0.2rem;
+              }
+
+              .result-div:hover {
+                box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
+              }
+
+              .result-link {
+                margin-left: 0.2rem;
+                text-decoration: underline;
+                color: purple;
+                font-size: 0.8rem;
+              }
+
+              #show-btn {
+                border-radius: 0.1rem;
+                border-style: none;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                height: 1.5rem;
+                margin-bottom: 1rem;
+                width: 6rem;
+              }
+
+              .x-btn {
+                border: none;
+                color: purple;
+                background-color: #F4F4F6;
+                height: 1rem;
+                font-size: 1.5rem;
+                margin: 0.5rem;
+              }
+
+            </style>
+
+            <!-- Load d3.js -->
+            <script src="https://d3js.org/d3.v4.js"></script>
+            <!-- Load d3-cloud -->
+            <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+            <script type="text/javascript">
+
+              function loadJSON(url) {
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.open("GET",url,true); // "asynchronous”
+                        xmlhttp.onload = function (e) {
+                          if (xmlhttp.readyState === 4) {
+                            if (xmlhttp.status === 200) {
+                              var slidesJson = JSON.parse(xmlhttp.responseText);
+                              var myIndex = -1;
+                              function carousel() {
+                                myIndex++
+                                if (myIndex >= 5) {
+                                  myIndex = 0;
+                                }
+                                $("slides_image").src = slidesJson.slides_articles[myIndex].urlToImage;
+                                $("title").innerHTML = slidesJson.slides_articles[myIndex].title;
+                                $("description").innerHTML = slidesJson.slides_articles[myIndex].description;
+                                var redirct = slidesJson.slides_articles[myIndex].url;
+                                $("image_container").onclick = function() {
+                                  window.open(redirct, '_blank');
+                                }
+                                setTimeout(carousel, 3000) // Change image every 2 seconds
+                              }
+                              carousel();
+                              
+                              function drawWordCloud(myWords) {
+                                
+                                // set the dimensions and margins of the graph
+                                var margin = {top: 1, right: 1, bottom: 1, left: 1},
+                                    width = 256 - margin.left - margin.right,
+                                    height = 256 - margin.top - margin.bottom;
+                                
+                                // append the svg object to the body of the page
+                                var svg = d3.select("#my_dataviz").append("svg")
+                                    .attr("width", width + margin.left + margin.right)
+                                    .attr("height", height + margin.top + margin.bottom)
+                                  .append("g")
+                                    .attr("transform",
+                                          "translate(" + margin.left + "," + margin.top + ")");
+                                
+                                // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
+                                // Wordcloud features that are different from one word to the other must be here
+                                var layout = d3.layout.cloud()
+                                  .size([width, height])
+                                  .words(myWords.map(function(d) { return {text: d.word, size:d.size}; }))
+                                  .padding(5)        //space between words
+                                  .rotate(function() { return ~~(Math.random() * 2) * 90; })
+                                  .fontSize(function(d) { return d.size; })      // font size of words
+                                  .on("end", draw);
+                                layout.start();
+                                
+                                // This function takes the output of 'layout' above and draw the words
+                                // Wordcloud features that are THE SAME from one word to the other can be here
+                                function draw(words) {
+                                  svg
+                                    .append("g")
+                                      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                                      .selectAll("text")
+                                        .data(words)
+                                      .enter().append("text")
+                                        .style("font-size", function(d) { return d.size + "px"; })
+                                        .style("fill", "#000000")
+                                        .attr("text-anchor", "middle")
+                                        .style("font-family", "Impact")
+                                        .attr("transform", function(d) {
+                                          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                                        })
+                                        .text(function(d) { return d.text; });
+                                }
+                              }
+                              // List of words
+                              var maxFreq = slidesJson.word_cloud[0][1];
+                              var sizeRatio = 35 / maxFreq;
+                              var wordsList = [];
+                              for (i = 0; i < slidesJson.word_cloud.length; i++) {
+                                var size = slidesJson.word_cloud[i][1] * sizeRatio;
+                                wordsList.push({word: slidesJson.word_cloud[i][0], size: size.toString()});
+                              }
+                              drawWordCloud(wordsList);
+                              
+                              var cnn_news = slidesJson.cnn;
+                              var fox_news = slidesJson.fox;
+
+                              function createCard(news) {
+                                var x = $(news[0].source.id);
+                                for (i = 0; i < news.length; i++) {
+                                  var card_link = document.createElement("a");
+                                  var card_div = document.createElement("div");
+                                  card_div.setAttribute("class", "card_div");
+                                  var card_image = document.createElement("img");
+                                  card_image.src = news[i].urlToImage;
+                                  card_image.setAttribute("class", "card_image");
+                                  var card_title = document.createElement("p");
+                                  card_title.innerHTML = news[i].title;
+                                  card_title.setAttribute("class", "card_title");
+                                  var card_description = document.createElement("p");
+                                  card_description.innerHTML = news[i].description;
+                                  card_description.setAttribute("class", "card_description");
+                                  card_div.appendChild(card_image);
+                                  card_div.appendChild(card_title);
+                                  card_div.appendChild(card_description);
+                                  card_link.setAttribute("class", "card_link");
+                                  card_link.setAttribute("href", news[i].url);
+                                  card_link.setAttribute("target", "_blank");
+                                  card_link.appendChild(card_div);
+                                  x.appendChild(card_link);
+                                }
+                              }
+                              createCard(cnn_news);
+                              createCard(fox_news);
+
+                            } else {
+                              console.error(xmlhttp.statusText);
+                            }
+                          }
+                        };
+                        xmlhttp.onerror = function (e) {
+                          console.error(xmlhttp.statusText);
+                        };
+                        xmlhttp.send(null);
+              }  
+
+              function initialize() {
+                loadJSON("/init");
+                function changePage() {
+                  function clearResult() {
+                    $("result-box").innerHTML = "";
+                    loadSourcesJSON("/sources/all");
+                  }
+                  $("reset-input").onclick = clearResult;
+                  var main = $("main_body");
+                  main.classList.toggle("hidden");
+                  var search = $("search_body");
+                  search.classList.toggle("hidden");
+                  var tds = document.getElementsByTagName("td");
+                  for (i = 0; i < tds.length; i++) {
+                    var currTd = tds[i].getAttribute("class");
+                    if (currTd === "other_page") {
+                      tds[i].setAttribute("class", "current_page");
+                    } else {
+                      tds[i].setAttribute("class", "other_page");
+                    }
+                  }
+                  document.getElementsByClassName("current_page")[0].removeEventListener("click", changePage);
+                  document.getElementsByClassName("other_page")[0].addEventListener("click", changePage);
+                  var date = new Date();
+                  isoDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
+                  $("todate").setAttribute("value", isoDate.toISOString().slice(0,10));
+                  isoDate.setDate(isoDate.getDate() - 7);
+                  $("fromdate").setAttribute("value", isoDate.toISOString().slice(0,10));
+                  document.getElementsByTagName("form")[0].addEventListener("submit", search_func)
+                  function search_func(event) {
+                    if ($("fromdate").valueAsDate > $("todate").valueAsDate) {
+                      alert("Incorrect time");
+                    } else {
+                      var q = encodeURI($("keyword").value);
+                      var from_param = $("fromdate").value;
+                      var to = $("todate").value;
+                      var source = $("source").value;
+                      loadResultJSON("/q=" + q + "&source=" + source+ "&fromdate=" + from_param + "&to=" + to);
+                      function loadResultJSON(url) {
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.open("GET",url,true); // "asynchronous”
+                        xmlhttp.onload = function (e) {
+                          if (xmlhttp.readyState === 4) {
+                            if (xmlhttp.status === 200) {
+                              var jsonObj = JSON.parse(xmlhttp.responseText);
+                              if (jsonObj['status'] === 'error') {
+                                alert(jsonObj['message']);
+                              } else {
+                                $("result-box").innerHTML = "";
+                                var result = jsonObj.result;
+                                if (result.length === 0) {
+                                  $("result-box").innerHTML = "No results";
+                                  return;
+                                }
+                                for (i = 0; i < result.length; i++) {
+                                  var result_div = document.createElement('div');
+                                  result_div.setAttribute('class', 'result-div');
+                                  result_div.classList.add("pointer");
+                                  var text_box = document.createElement('div');
+                                  text_box.setAttribute('class', 'text-box');
+                                  var result_img = document.createElement('img');
+                                  result_img.setAttribute('class', 'result-img');
+                                  result_img.src = result[i].urlToImage;
+                                  var result_title = document.createElement('p');
+                                  result_title.innerHTML = result[i].title;
+                                  result_title.style = "font-weight:bold; font-size:0.9rem; margin-top: 1rem";
+                                  var result_author = document.createElement('p');
+                                  result_author.innerHTML = "<span style=\"font-weight:bold\">Author:</span> " + result[i].author;
+                                  result_author.setAttribute('class', 'hidden');
+                                  var result_source = document.createElement('p');
+                                  result_source.innerHTML = "<span style=\"font-weight:bold\">Source:</span> " + result[i].source.name;
+                                  result_source.setAttribute('class', 'hidden');
+                                  var result_date = document.createElement('p');
+                                  var date = new Date(result[i].publishedAt);
+                                  var year = date.getFullYear();
+                                  var month = date.getMonth() + 1;
+                                  if (month < 10) {
+                                    month = "0" + month;                              
+                                  }
+                                  var date = date.getDate();
+                                  if (date < 10) {
+                                    date = "0" + date;
+                                  }
+                                  result_date.innerHTML = "<span style=\"font-weight:bold\">Date:</span> " + month + "/" + date + "/" + year;
+                                  result_date.setAttribute('class', 'hidden');
+                                  var result_description = document.createElement('p');
+                                  result_description.setAttribute('class', 'result-description');
+                                  var description = result[i].description;
+                                  if (description.length <= 70) {
+                                    result_description.innerHTML = description;
+                                  } else {
+                                    var charIndex = 70;
+                                    while (description.charAt(charIndex) !== " ") {
+                                      charIndex--;
+                                    }
+                                    result_description.innerHTML = description.substring(0, charIndex) + "<span class=\"dot\">...</span>" + "<span class=\"hidden\">" + description.substring(charIndex)  + "</span>";
+                                  }
+                                  var result_link = document.createElement('a');
+                                  result_link.innerHTML = "See Original Post";
+                                  result_link.setAttribute("href", result[i].url);
+                                  result_link.setAttribute('class', 'hidden');
+                                  result_link.setAttribute("target", "_blank");
+                                  result_div.appendChild(result_img);
+                                  var x_btn = document.createElement('button');
+                                  x_btn.innerHTML = "&#10005;";
+                                  x_btn.setAttribute("class", "hidden");
+                                  x_btn.classList.add("pointer");
+                                  function showResult(event) {
+                                    event.stopPropagation();
+                                    event.preventDefault();
+                                    var div;
+                                    if (this.className === "x-btn pointer") {
+                                      div = this.parentElement;
+                                    } else {
+                                      div = this;
+                                    }
+                                    var text_box_element = div.children[1].children;
+                                    var x_btn_element = div.children[2];
+                                    if (text_box_element[1].className === "hidden") {
+                                      text_box_element[1].className = "card_description";
+                                      text_box_element[2].className = "card_description";
+                                      text_box_element[3].className = "card_description";
+                                      text_box_element[5].className = "result-link";
+                                      if (text_box_element[4].children.length === 2) {
+                                        text_box_element[4].children[0].className = "hidden";
+                                        text_box_element[4].children[1].className = "card_description";
+                                      }
+                                      x_btn_element.className = "x-btn pointer";
+                                      div.style.height = "auto";
+                                      div.removeEventListener("click", showResult);
+                                      div.classList.remove("pointer");
+                                      x_btn_element.addEventListener("click", showResult);
+                                    } else {
+                                      text_box_element[1].className = "hidden";
+                                      text_box_element[2].className = "hidden";
+                                      text_box_element[3].className = "hidden";
+                                      text_box_element[5].className = "hidden";
+                                      if (text_box_element[4].children.length === 2) {
+                                        text_box_element[4].children[0].className = "dot";
+                                        text_box_element[4].children[1].className = "hidden";
+                                      }
+                                      x_btn_element.className = "hidden";
+                                      div.style.height = "6rem";
+                                      div.addEventListener("click", showResult);
+                                      div.classList.add("pointer");
+                                    }
+                                  }                              
+                                  result_div.addEventListener("click", showResult);
+                                  text_box.appendChild(result_title);
+                                  text_box.appendChild(result_author);
+                                  text_box.appendChild(result_source);
+                                  text_box.appendChild(result_date);
+                                  text_box.appendChild(result_description);
+                                  text_box.appendChild(result_link);
+                                  result_div.appendChild(text_box);
+                                  result_div.appendChild(x_btn);
+                                  if (i > 4) {
+                                    result_div.setAttribute("class", "hidden");
+                                  }
+                                  $("result-box").appendChild(result_div);
+                                }
+                                if (result.length > 5) {
+                                  var show_btn = document.createElement("button");
+                                  show_btn.setAttribute("id", "show-btn");
+                                  show_btn.setAttribute("class", "pointer");
+                                  show_btn.innerHTML = "Show More";
+                                  $("result-box").appendChild(show_btn);
+                                }
+                                function show() {
+                                  if ($("show-btn").innerHTML === "Show More") {
+                                    $("show-btn").innerHTML = "Show Less";
+                                  } else {
+                                    $("show-btn").innerHTML = "Show More";
+                                  }
+                                  var all_result_div = $("result-box").children;
+                                  for (i = 0; i < all_result_div.length - 1; i++) {
+                                    if (i > 4) {
+                                      if (all_result_div[i].className === "hidden") {
+                                        all_result_div[i].setAttribute("class", "result-div");
+                                      } else {
+                                        all_result_div[i].setAttribute("class", "hidden");
+                                      }
+                                    }
+                                  }
+                                }
+                                if ($("show-btn") !== null) {
+                                  $("show-btn").addEventListener("click", show);
+                                }
+                              }
+                            } else {
+                            console.error(xmlhttp.statusText);
+                            }
+                          };
+                        }
+                        xmlhttp.onerror = function (e) {
+                          console.error(xmlhttp.statusText);
+                        };
+                        xmlhttp.send(null);
+                      }
+                    }
+
+                    event.preventDefault();
+                  }
+
+                  function loadSourcesJSON(url) {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("GET",url,true); // "asynchronous”
+                    xmlhttp.onload = function (e) {
+                      if (xmlhttp.readyState === 4) {
+                        if (xmlhttp.status === 200) {
+                          var sourcesJson = JSON.parse(xmlhttp.responseText).sorted_list;
+                          var childLen = $("source").childElementCount;
+                          for (i = childLen - 1; i > 0; i--) {
+                            $("source").removeChild($("source").children[i]);
+                          }
+                          var names = Object.keys(sourcesJson);
+                          for (i = 0; i < names.length; i++) {
+                            var option = document.createElement("option");
+                            var name = names[i];
+                            option.innerHTML = name;
+                            option.setAttribute("value", sourcesJson[name]);
+                            $("source").appendChild(option);
+                          }
+                        } else {
+                        console.error(xmlhttp.statusText);
+                        }
+                      }
+                    };
+                    xmlhttp.onerror = function (e) {
+                      console.error(xmlhttp.statusText);
+                    };
+                    xmlhttp.send(null);
+                  }
+
+                  function changeCategory() {
+                        var cat = $("category").value;
+                        loadSourcesJSON("/sources/" + cat);
+                  }
+                  loadSourcesJSON("/sources/all");
+                  $("category").addEventListener("change", changeCategory);
+                  $("keyword").focus();
+
+                }
+                document.getElementsByClassName("other_page")[0].addEventListener("click", changePage);
+              }
+
+              window.onload = initialize;
+
+              /**
+                * Returns the element that has the ID attribute with the specified value.
+                * @param {string} id - element ID
+                * @return {object} DOM object associated with id.
+                */
+              function $(id) {
+                return document.getElementById(id);
+              }
+            </script>
+        </head>
+        <body>
+            <div id="main_page">
+              <div id="tabs_container">
+                <div id="tabs">
+                  <table>
+                    <tr>
+                      <td class="current_page">Google News</td>
+                    </tr>
+                    <tr>
+                      <td class="other_page">Search</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <div id="search_body" class="hidden">
+                <div id="search-box">
+                  <form>
+                    <div id="input-div">
+                      <label class="required" for="keyword">Keyword</label>
+                      <input type="text" id="keyword" name="keyword" required>
+                      <label class="required" for="fromdate">From</label>
+                      <input type="date" id="fromdate" name="fromdate" required>
+                      <label class="required" for="todate">To</label>
+                      <input type="date" id="todate" name="todate" required>
+                    </div>
+                    <div id="dropdowns-div">
+                      <label for="category">Category</label>
+                      <select id="category">
+                        <option value="all" selected>all</option>
+                        <option value="business">business</option>
+                        <option value="entertainment">entertainment</option>
+                        <option value="general">general</option>
+                        <option value="health">health</option>
+                        <option value="science">science</option>
+                        <option value="sports">sports</option>
+                        <option value="technology">technology</option>
+                      </select>
+                      <label for="source">Source</label>
+                      <select id="source">
+                        <option value="all" selected>all</option>
+                      </select>
+                    </div>
+                    <div id="button-div">
+                      <input id="submit-input" type="submit" value="Search">
+                      <input id="reset-input" type="reset" value="Clear">
+                    </div>
+                  </form>
+                </div>
+                <div id="result-box">
+                </div>
+              </div>
+
+              <div id="main_body">
+                <div id="slides">
+                  <div id="image_container" class="pointer">
+                    <img id="slides_image">
+                    <div>
+                      <p id='title'></p>
+                      <p id='description'></p>
+                    </div>
+                  </div>
+                  <div id="my_dataviz"></div>
+                </div>
+                <p class="subtitle">CNN</p>
+                <hr class="dotted">
+                <hr class="solid">
+                <div id="cnn" class="news_container">
+                </div>
+                <p class="subtitle">Fox News</p>
+                <hr class="dotted">
+                <hr class="solid">
+                <div id="fox-news" class="news_container">
+                </div>
+              </div>
+            </div>
+        </body>
+    </html>
